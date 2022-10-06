@@ -1,30 +1,27 @@
 require('dotenv').config()
 const express = require("express");
-const bodyParser = require("body-parser");
-import { allowedNodeEnvironmentFlags } from "process";
 const db = require("../Backend/classes/database")
 
-dbinterface = db();
+dbinterface = new db();
 const app = express();
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+const server = app.listen(3000, () => {
 
-app.use(express.static("public"))
-
-app.get('/events', function (req, res) {
-    const result = dbinterface.GetByOrgName(req)
+    console.log("Example app listening at port 3000");
+})
+    
+app.get('/events', async function (req, res) {
+    const result = await dbinterface.GetEventByOrgNumber(req.query.org)
     res.send(result)
     })
 
-    app.get('/company', function (req, res) {
-    
-    })
+app.get('/company', async function (req, res) {
+    const result = await dbinterface.GetByOrgName(req.query.name);
+    res.send(result);
+})
 
-var server = app.listen(8080, function () {
-    var host = server.address().address
-    var port = server.address().port
-    console.log("Example app listening at http://%s:%s", host, port)
-    })
-    
+app.get('/', async function (req, res) {
+    const result =  await dbinterface.GetOrg();
+    res.send(result);
+})
+

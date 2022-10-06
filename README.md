@@ -9,9 +9,13 @@ Updating the registry after each event where an external company is involved ben
 
 ## Expectations
 These are expectations the student-associations have when dealing with companies:
+
 -The company should pay within 2 weeks of the hosted event, unless otherwis is agreed upon in advance.
+
 -The company should communicate effectively and in a timely manner with the student-association prior to, and during, the event.
+
 -Representatives from the company should conduct themselves in a professional manner.
+
 -Representatives from the company should be arrive on time and be prepared when the event is set to start.
 
 ## Rating Guidelines

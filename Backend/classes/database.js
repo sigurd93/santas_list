@@ -1,5 +1,4 @@
-const { MongoClient } = require("mongodb");
-// Connection URI
+const mongoClient = require("mongodb").MongoClient;
 
 module.exports = class databaseClient {
     constructor() {
@@ -7,72 +6,98 @@ module.exports = class databaseClient {
         this.database = undefined;
         this.collection = undefined;
         this.initialize();
+        this.str = "";
     }
     async initialize() {
-        const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_ADDRESS}:${process.env.MONGOPORT}?retryWrites=true&writeConcern=majority`;
-        this.client = new MongoClient(uri);
+        const uri = `mongodb://${process.env.MONGO_ADDRESS}:${process.env.MONGOPORT}/`;
+        console.log(uri)
+        this.client = new mongoClient(uri);
+        this.database = this.client.db(process.env.MONGO_DB);
+        this.collection = this.database.collection(process.env.MONGO_COLLECTION);     
+    
+    }
+
+    async GetOrg() {
+        await this.client.connect();
         try {
-            this.client = client.db(process.env.MONGO_DB);
-            this.collection = this.client.collection(process.env.MONGO_COLLECTION);            
+            const query = {
+                "packet_type": "company"
+            }
+            let cursor = this.collection.find(query);
+            await cursor.forEach((res) => {
+                this.str = this.str + JSON.stringify(res);
+            });
+            await cursor.close();
+            console.log(this.str);
+            return this.str;
         } catch (error) {
-            throw new Error(error);
+            throw error
+        } finally {
+            this.str = "";
+            this.client.close();
         }
     }
 
     async GetByOrgName(name) {
         try {
-            let result = [];
+            await this.client.connect();
+            let result;
             const query = {
-                packet_type: "company", data: {
-                     name: name 
-                    }
+                "packet_type": "company", "data.Name": name 
                 }
             const cursor = this.collection.find(query);
-            await cursor.forEach((x) => {
-                result.append(x);                
-            });
-
-            return result;
+            await cursor.forEach((res) => {
+                this.str = this.str + JSON.stringify(res);
+            })
+            return this.str;
             } catch (error) {
             throw new Error(error);
+        } finally {
+            this.str = "";
+            this.client.close();
         }
     }
     
     async GetEventById(id) {
         try {
-            let result = [];
+            await this.client.connect();
+            let result;
             const query = {
-                packet_type: "event", _id: id
+                "packet_type": "event", "_id": id
             }
             const cursor = this.collection.find(query);
-            await cursor.forEach((x) => {
-                result.append(x);
+            await cursor.forEach((res) => {
+                this.str = this.str + JSON.stringify(res)
             })
             return result;
         } catch (error) {
             throw new Error(error)
+        } finally {
+            this.str = "";
+            this.client.close();
         }
     }
 
-    async GetEventByOrgnumber(number) {
+    async GetEventByOrgNumber(number) {
         try {
-            let result = [];
+            await this.client.connect();
             const query = {
-                packet_type: "event", data : { 
-                    OrgNr: number
+                "packet_type": "event", "data.OrgNr": number
                 }
-            }
             const options = {
-                sort:{"data.date": 1},
-                projection: { _id:1, data: {type: 1, date: 1,}}
+                "sort":{"data.date": 1},
+                "projection": { "_id":1, "data.type": 1, "data.date": 1,}
             }
-            const cursor = this.collection.find(query, options);
-            await cursor.forEach((x) => {
-                result.append(x);
-            });
+            const cursor = this.collection.find(query, options)
+            await cursor.forEach((res) => {
+                this.str = this.str + JSON.stringify(res)
+            })
             return result;
         } catch (error) {
             throw new Error(error);
+        } finally {
+            this.str = "";
+            this.client.close();
         }
     }
 
@@ -91,6 +116,3 @@ module.exports = class databaseClient {
 
     }
 }
-
-
-run().catch(console.dir);

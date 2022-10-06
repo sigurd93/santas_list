@@ -9,7 +9,7 @@ MONGO_USER=root
 MONGO_PASS=example
 ```
 
-## Start DB
+## Start DB for local testing
 ```
-docker compose up
+docker compose -f .\docker-compose.yml up
 ```

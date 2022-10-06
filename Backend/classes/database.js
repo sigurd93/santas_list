@@ -39,16 +39,21 @@ module.exports = class databaseClient {
     }
 
     async GetByOrgName(name) {
+        await this.client.connect();
         try {
-            await this.client.connect();
-            let result;
+            if (!name) {
+                return "trenger navn"
+            }
+            console.log(name)
             const query = {
                 "packet_type": "company", "data.Name": name 
                 }
-            const cursor = this.collection.find(query);
+            let cursor = this.collection.find(query);
             await cursor.forEach((res) => {
                 this.str = this.str + JSON.stringify(res);
             })
+            await cursor.close()
+            console.log(this.str);
             return this.str;
             } catch (error) {
             throw new Error(error);
@@ -65,7 +70,7 @@ module.exports = class databaseClient {
             const query = {
                 "packet_type": "event", "_id": id
             }
-            const cursor = this.collection.find(query);
+            let cursor = this.collection.find(query);
             await cursor.forEach((res) => {
                 this.str = this.str + JSON.stringify(res)
             })
@@ -85,10 +90,10 @@ module.exports = class databaseClient {
                 "packet_type": "event", "data.OrgNr": number
                 }
             const options = {
-                "sort":{"data.date": 1},
-                "projection": { "_id":1, "data.type": 1, "data.date": 1,}
+                "sort":{"data.Dato": 1},
+                "projection": { "_id":1, "data.type": 1, "data.Dato": 1,}
             }
-            const cursor = this.collection.find(query, options)
+            let cursor = this.collection.find(query, options)
             await cursor.forEach((res) => {
                 this.str = this.str + JSON.stringify(res)
             })

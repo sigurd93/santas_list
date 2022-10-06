@@ -4,7 +4,7 @@
         "data": {
             "OrgNr": "12345",
             "StudentOrg": "Beta",
-            "Date": "10/3/2022",
+            "Dato": "10/3/2022",
             "Contact": {
                 "name": "Bølle Bøllesen"
             },
@@ -25,7 +25,7 @@
         "data": {
             "OrgNr": "123",
             "StudentOrg": "Beta",
-            "Date": "12/5/2022",
+            "Dato": "12/5/2022",
             "Contact": {
                 "name": "Frode Fjøsnisse"
             },
@@ -46,7 +46,7 @@
         "data": {
             "OrgNr": "123",
             "StudentOrg": "Beta",
-            "Date": "23/1/2022",
+            "Dato": "23/1/2022",
             "Contact": {
                 "name": "Frode Fjøsnisse"
             },
@@ -63,7 +63,7 @@
         "data": {
             "OrgNr": "12345",
             "StudentOrg": "Beta",
-            "Date": "2/3/2022",
+            "Dato": "2/3/2022",
             "Contact": {
                 "name": "Birger Basketak"
             },
@@ -84,7 +84,7 @@
         "data": {
             "OrgNr": "1234",
             "StudentOrg": "Beta",
-            "Date": "14/3/2022",
+            "Dato": "14/3/2022",
             "Contact": {
                 "name": "Torvaldsen Svingen"
             },
@@ -101,7 +101,7 @@
         "data": {
             "OrgNr": "1",
             "StudentOrg": "Beta",
-            "Date": "13/4/2022",
+            "Dato": "13/4/2022",
             "Contact": {
                 "name": "Fredrik Fredspipe"
             },
@@ -119,7 +119,7 @@
         "data": {
             "OrgNr": "12",
             "StudentOrg": "Beta",
-            "Date": "9/1/2022",
+            "Dato": "9/1/2022",
             "Contact": {
                 "name": "Clippy"
             },
@@ -137,7 +137,7 @@
         "data": {
             "OrgNr": "12",
             "StudentOrg": "Beta",
-            "Date": "10/3/2022",
+            "Dato": "10/3/2022",
             "Contact": {
                 "name": "Billiam Porter"
             },

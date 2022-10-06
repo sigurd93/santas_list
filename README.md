@@ -45,6 +45,14 @@ Other examples that can result in a 1* review are: not paying, representatives c
 
 
 # Requirements
+
+## Api Endpoints
+Examples using localhost:3000
+```
+localhost:3000/ -> returns all companies
+localhost:3000/company?name=<query> -> companies by name
+localhost:3000/events?org=<orgnumber>
+```
 ## Env variables for local testing
 ```
 MONGO_DB=santa

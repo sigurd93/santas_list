@@ -11,17 +11,17 @@ const server = app.listen(3000, () => {
 })
     
 app.get('/events', async function (req, res) {
-    const result = await dbinterface.GetEventByOrgNumber(req)
+    const result = await dbinterface.GetEventByOrgNumber(req.query.org)
     res.send(result)
     })
 
 app.get('/company', async function (req, res) {
-    const result = await dbinterface.GetOrg();
+    const result = await dbinterface.GetByOrgName(req.query.name);
     res.send(result);
 })
 
 app.get('/', async function (req, res) {
     const result =  await dbinterface.GetOrg();
-    res.send(JSON.stringify(result));
+    res.send(result);
 })
 

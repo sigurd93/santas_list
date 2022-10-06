@@ -32,7 +32,5 @@ const Company = {
     data: {
         Name: "Bølle Consultants",
         OrgNr: "80085",
-        
-
     }
 }

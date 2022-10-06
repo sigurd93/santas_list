@@ -1,0 +1,188 @@
+[
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "12345",
+            "StudentOrg": "Beta",
+            "Date": "10/3/2022",
+            "Contact": {
+                "name": "Bølle Bøllesen"
+            },
+            "Mark": [
+                {
+                "Severity": "5",
+                "Comment": "Did heftig Bølling"
+            }
+        ],
+            "Rating": 3,
+            "Comment": "ikke very nice",
+            "Type": "Bedpress"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "123",
+            "StudentOrg": "Beta",
+            "Date": "12/5/2022",
+            "Contact": {
+                "name": "Frode Fjøsnisse"
+            },
+            "Mark": [
+            {
+                "Severity": "1",
+                "Comment": "Lukta fjøs"
+            }
+        ],
+            "Rating": 4,
+            "Comment": "Very nice",
+            "Type": "Bedpress"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "123",
+            "StudentOrg": "Beta",
+            "Date": "23/1/2022",
+            "Contact": {
+                "name": "Frode Fjøsnisse"
+            },
+            "Mark": [
+        ],
+            "Rating": 5,
+            "Comment": "Very nice",
+            "Type": "Bedpress"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "12345",
+            "StudentOrg": "Beta",
+            "Date": "2/3/2022",
+            "Contact": {
+                "name": "Birger Basketak"
+            },
+            "Mark": [
+            {
+                "Severity": "3",
+                "Comment": "Betalte for sent"
+            }
+        ],
+            "Rating": 4,
+            "Comment": "Bra faglig opplegg",
+            "Type": "Bedpress"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "1234",
+            "StudentOrg": "Beta",
+            "Date": "14/3/2022",
+            "Contact": {
+                "name": "Torvaldsen Svingen"
+            },
+            "Mark": [
+        ],
+            "Rating": 5,
+            "Comment": "Very nice",
+            "Type": "Bedpress"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "1",
+            "StudentOrg": "Beta",
+            "Date": "13/4/2022",
+            "Contact": {
+                "name": "Fredrik Fredspipe"
+            },
+            "Mark": [
+
+        ],
+            "Rating": 3,
+            "Comment": "Litt lite faglig relevant",
+            "Type": "Bedpress"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "12",
+            "StudentOrg": "Beta",
+            "Date": "9/1/2022",
+            "Contact": {
+                "name": "Clippy"
+            },
+            "Mark": [
+
+        ],
+            "Rating": 5,
+            "Comment": "Nå kan jeg endelig bruke word",
+            "Type": "Kurs"
+    
+        }
+    },
+    {
+        "packet_type": "event",
+        "data": {
+            "OrgNr": "12",
+            "StudentOrg": "Beta",
+            "Date": "10/3/2022",
+            "Contact": {
+                "name": "Billiam Porter"
+            },
+            "Mark": [
+        ],
+            "Rating": 3,
+            "Comment": "Ble mye vindusnakk",
+            "Type": "Sosialt Arrangement"
+        }
+    },
+    {
+        "packet_type": "company",
+        "data": {
+            "Name": "Bølle Consultants",
+            "OrgNr": "12345"
+        }
+    },
+    {
+        "packet_type": "company",
+        "data": {
+            "Name": "Linus Media Group",
+            "OrgNr": "1234"
+        }
+    },
+    {
+        "packet_type": "company",
+        "data": {
+            "Name": "Tv2",
+            "OrgNr": "123"
+        }
+    },
+    {
+        "packet_type": "company",
+        "data": {
+            "Name": "Mikromyk",
+            "OrgNr": "12"
+        }
+    },
+    {
+        "packet_type": "company",
+        "data": {
+            "Name": "Grimstad Skorstein Fabrikk",
+            "OrgNr": "1"
+        }
+    }
+]
+
+

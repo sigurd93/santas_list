@@ -5,9 +5,9 @@ const db = require("../Backend/classes/database")
 dbinterface = new db();
 const app = express();
 
-const server = app.listen(3000, () => {
+const server = app.listen(3001, () => {
 
-    console.log("Example app listening at port 3000");
+    console.log("Example app listening at port 3001");
 })
     
 app.get('/events', async function (req, res) {

@@ -1,10 +1,11 @@
 require('dotenv').config()
 const express = require("express");
-const db = require("../Backend/classes/database")
-
+const db = require("../Backend/classes/database");
+const cors = require('cors');
 dbinterface = new db();
 const app = express();
 
+app.use(cors())
 const server = app.listen(3001, () => {
 
     console.log("Example app listening at port 3001");

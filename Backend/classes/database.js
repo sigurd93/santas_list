@@ -29,7 +29,7 @@ module.exports = class databaseClient {
             });
             await cursor.close();
             console.log(this.str);
-            return this.str;
+            return JSON.stringify(this.str);
         } catch (error) {
             throw error
         } finally {

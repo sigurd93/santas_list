@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SearchItem from './SearchItem';
 import "../App.css";
-import "./RequestComponent.js";
 
 
 
@@ -37,7 +36,7 @@ const SearchView = (props) => {
                 
                 <div className='SearchListContainer'>
                     {
-                        props.companies.map(company => 
+                        props.company.map(company => 
                         <SearchItem 
                             key={company.id} 
                             id={company.id}

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
 
 import SearchView from './components/SearchView';
 import SearchItem from './components/SearchItem';
@@ -8,15 +9,30 @@ import CompanyView from './components/CompanyView';
 
 
 
+
 function App() {
   
   // Local data variable with data from MongoDB
-  const [data, setData] = useState()
-  // State variable for input text
-  const [searchInput, setSearchInput] = useState()
-  // State variable for managing displayed view
-  const [selectedView, setSelectedView] = useState("company")
-  
+
+    
+    const [data, setData] = useState()
+    // State variable for input text
+    const [searchInput, setSearchInput] = useState()
+    // State variable for managing displayed view
+    const [selectedView, setSelectedView] = useState("company")
+    
+    useEffect(() => {
+        // GET request using fetch inside useEffect React hook
+        axios.get('http://localhost:3001/')
+            .then(res => {
+                const company = res.data;
+                setData({company});
+                const test = JSON.parse(company)
+                console.log(test);
+            } )
+    
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, []);
   
   
   const [tempEventData, setTempEventData] = useState(
@@ -237,7 +253,7 @@ function App() {
       default:
         console.log("Switching to search view")
         return (
-          <SearchView companies={tempCompanyData} />
+          <SearchView companies={data} />
         )
     }
   }

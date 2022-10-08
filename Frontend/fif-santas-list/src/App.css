@@ -8,6 +8,7 @@ html, body {
 h1 {
   color: white;
   font-size: 50px;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
 .App {
@@ -21,10 +22,11 @@ h1 {
 
 .HeaderContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  border: 2px solid rgba(0, 0, 0, 0.5);
+  /* border: 2px solid rgba(0, 0, 0, 0.5); */
   margin-bottom: 2px;
+  padding-left: 10px;
   width: 100%;
 }
 
@@ -32,6 +34,7 @@ h1 {
   border: 2px solid rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   padding: 10px;
+  margin-right: 100px;
 }
 
 .CustomReturnButton:hover {
@@ -46,7 +49,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  border: 2px solid rgba(0, 0, 0, 0.5) ;
+  /* border: 2px solid rgba(0, 0, 0, 0.5) ; */
   margin: 50px auto;
   padding: 10px 10px;
   height: 800px;
@@ -59,7 +62,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 2px solid rgba(0, 0, 0, 0.5);
+  /* border: 2px solid rgba(0, 0, 0, 0.5); */
   height: 100%;
   width: 100%;
 }
@@ -74,33 +77,40 @@ h1 {
 }
 
 .SearchListContainer {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   background-color: #EEEEEE;
   margin: 10px 10px;
   height: 100%;
   width: 96%;
+  overflow-y: scroll;
 }
 
 .SearchItem {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: #faebd7;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 2px;
   margin: 5px 5px;
-  padding: 0px 8px;
+  padding-left: 5px;
+}
+
+.SearchItem:hover {
+  background-color: #ded1bf;
+  cursor: pointer;
 }
 
 .SearchItemNameContainer {
   display: flex;
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  width: 50%;
+  width: 100%;
 }
 
 .SearchItemOrgNrContainer {
   display: flex;
-  border: 2px solid rgba(0, 0, 0, 0.5);
   width: 50%;
 }
 
@@ -110,6 +120,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px ;
   background-color: #EEEEEE;
@@ -122,6 +133,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   background-color: #ffffff;
@@ -133,7 +145,28 @@ h1 {
   width: 90%;
 }
 
+.CompanyNameAndOrgNr {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.CompanyInfoNameContainer {
+  display: flex;
+  width: 100%;
+}
+
+.CompanyInfoOrgNrContainer {
+  display: flex;
+  width: 50%;
+}
+
 .CompanyEventListContainer {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   background-color: #ffffff;
@@ -143,7 +176,15 @@ h1 {
   height: 90%;
 }
 
-
+.EventItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  padding-left: 5px;
+  width: 100%;
+  height: fit-content;
+}
 
 
 

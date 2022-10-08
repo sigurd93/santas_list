@@ -4,6 +4,7 @@ import './App.css';
 import SearchView from './components/SearchView';
 import SearchItem from './components/SearchItem';
 import CompanyView from './components/CompanyView';
+import { BsFillHandIndexFill } from 'react-icons/bs';
 
 
 
@@ -12,13 +13,13 @@ function App() {
   
   // Local data variable with data from MongoDB
   const [data, setData] = useState()
-  // State variable for input text
-  const [searchInput, setSearchInput] = useState()
   // State variable for managing displayed view
-  const [selectedView, setSelectedView] = useState("company")
+  const [selectedView, setSelectedView] = useState()
+  // temporary storage variable for company ID
+  const [companyID, setcompanyID] = useState()
   
   
-  
+  // Temporary data until database is up and running
   const [tempEventData, setTempEventData] = useState(
     [
       {
@@ -173,6 +174,7 @@ function App() {
     ]
   )
   
+  // temporary data until database is up and running
   const [tempCompanyData, setTempCompanyData] = useState(
     [
       {
@@ -221,32 +223,40 @@ function App() {
   
   
   
-  
-  const searchUpdate = () => {
-    console.log("Function: searchUpdate()")
+  const DisplayCompany = (id) => {
+    setcompanyID(id)
+    setSelectedView("company")
   }
   
   
+  
+  const searchUpdate = () => {
+    // Search functionality should be created through a separate filter component
+    // Existing search packages might be available through node modules
+    console.log("Function: searchUpdate()")
+  }
+  
+  // Switch case for displaying search view or company info
   const SwitchView = () => {
     switch(selectedView) {
       case "company":
         console.log("Switching to company view")
         return (
-          <CompanyView return={ReturnToSearch} />
+          <CompanyView return={ReturnToSearch} companyInfo={tempCompanyData.filter(company => company.id == companyID)} />
         )
       default:
         console.log("Switching to search view")
         return (
-          <SearchView companies={tempCompanyData} />
+          <SearchView companies={tempCompanyData} displayCompany={DisplayCompany} />
         )
     }
   }
   
-  
+  // Function for returning to search from company info.
+  // Alternative would be to change the header to a navbar with corrensponding view buttons
   const ReturnToSearch = () => {
     setSelectedView()
   }
-  
   
   
   

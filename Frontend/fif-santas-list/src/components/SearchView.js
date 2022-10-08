@@ -17,13 +17,12 @@ const SearchView = (props) => {
     }
     
     
-    
+    /*
     useEffect(() => {
         console.log("Search View Props:")
         console.log(props)
     }, [props])
-    
-    
+    */
     
     return (
         <div className='MainContainer'>
@@ -42,7 +41,8 @@ const SearchView = (props) => {
                             key={company.id} 
                             id={company.id}
                             orgNr={company.data.OrgNr} 
-                            name={company.data.Name} 
+                            name={company.data.Name}
+                            displayCompany={props.displayCompany}
                         /> )
                     }
                 </div>

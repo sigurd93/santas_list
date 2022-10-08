@@ -6,15 +6,16 @@ const SearchItem = (props) => {
     
     
     
-    
+    /*
     useEffect(() => {
         console.log("Search Item: ")
         console.log(props)
     }, [props])
+    */
     
     
     return (
-        <div className='SearchItem'>
+        <div className='SearchItem' onClick={() => props.displayCompany(props.id)}>
             <div className='SearchItemNameContainer'>
                 <h3>{props.name}</h3>
             </div>

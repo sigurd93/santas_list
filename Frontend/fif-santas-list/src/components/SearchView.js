@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import SearchItem from './SearchItem';
 import "../App.css";
 
 
 
-const SearchView = () => {
+const SearchView = (props) => {
     
     // State variable for input text
     const [searchInput, setSearchInput] = useState()
@@ -12,7 +13,14 @@ const SearchView = () => {
     const handleInput = (e) => {
         console.log("Input onChange triggered")
         setSearchInput(e.value)
-      }
+    }
+    
+    
+    
+    useEffect(() => {
+        console.log("Search View Props:")
+        console.log(props)
+    }, [props])
     
     
     
@@ -27,7 +35,15 @@ const SearchView = () => {
                 </div>
                 
                 <div className='SearchListContainer'>
-                    <p>TEMP</p>
+                    {
+                        props.companies.map(company => 
+                        <SearchItem 
+                            key={company.id} 
+                            id={company.id}
+                            orgNr={company.data.OrgNr} 
+                            name={company.data.Name} 
+                        /> )
+                    }
                 </div>
             </div>            
         </div>

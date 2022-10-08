@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../App.css";
+import "./RequestComponent.js";
 
 
 
@@ -12,6 +13,7 @@ const SearchView = () => {
     const handleInput = (e) => {
         console.log("Input onChange triggered")
         setSearchInput(e.value)
+
       }
     
     

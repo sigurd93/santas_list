@@ -15,41 +15,208 @@ function App() {
   // State variable for input text
   const [searchInput, setSearchInput] = useState()
   // State variable for managing displayed view
-  const [selectedView, setSelectedView] = useState()
-  
-  
-  const [tempData, setTempData] = useState( [
-    {
-      Name: "Mega Consulting",
-      OrgNr: 1001
-    },
-    {
-      Name: "Example Industries",
-      OrgNr: 1002
-    },
-    {
-      Name: "Groundbreaking Technologies",
-      OrgNr: 1003
-    },
-  ])
+  const [selectedView, setSelectedView] = useState("company")
   
   
   
+  const [tempEventData, setTempEventData] = useState(
+    [
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "12345",
+              "StudentOrg": "Beta",
+              "Dato": "10/3/2022",
+              "Contact": {
+                  "name": "Bølle Bøllesen"
+              },
+              "Mark": [
+                  {
+                  "Severity": "5",
+                  "Comment": "Did heftig Bølling"
+              }
+          ],
+              "Rating": 3,
+              "Comment": "ikke very nice",
+              "Type": "Bedpress"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "123",
+              "StudentOrg": "Beta",
+              "Dato": "12/5/2022",
+              "Contact": {
+                  "name": "Frode Fjøsnisse"
+              },
+              "Mark": [
+              {
+                  "Severity": "1",
+                  "Comment": "Lukta fjøs"
+              }
+          ],
+              "Rating": 4,
+              "Comment": "Very nice",
+              "Type": "Bedpress"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "123",
+              "StudentOrg": "Beta",
+              "Dato": "23/1/2022",
+              "Contact": {
+                  "name": "Frode Fjøsnisse"
+              },
+              "Mark": [
+          ],
+              "Rating": 5,
+              "Comment": "Very nice",
+              "Type": "Bedpress"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "12345",
+              "StudentOrg": "Beta",
+              "Dato": "2/3/2022",
+              "Contact": {
+                  "name": "Birger Basketak"
+              },
+              "Mark": [
+              {
+                  "Severity": "3",
+                  "Comment": "Betalte for sent"
+              }
+          ],
+              "Rating": 4,
+              "Comment": "Bra faglig opplegg",
+              "Type": "Bedpress"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "1234",
+              "StudentOrg": "Beta",
+              "Dato": "14/3/2022",
+              "Contact": {
+                  "name": "Torvaldsen Svingen"
+              },
+              "Mark": [
+          ],
+              "Rating": 5,
+              "Comment": "Very nice",
+              "Type": "Bedpress"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "1",
+              "StudentOrg": "Beta",
+              "Dato": "13/4/2022",
+              "Contact": {
+                  "name": "Fredrik Fredspipe"
+              },
+              "Mark": [
   
-  const SwitchView = () => {
-    switch(selectedView) {
-      case "company":
-        console.log("Switching to company view")
-        return (
-          <CompanyView />
-        )
-      default:
-        console.log("Switching to search view")
-        return (
-          <SearchView />
-        )
-    }
-  }
+          ],
+              "Rating": 3,
+              "Comment": "Litt lite faglig relevant",
+              "Type": "Bedpress"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "12",
+              "StudentOrg": "Beta",
+              "Dato": "9/1/2022",
+              "Contact": {
+                  "name": "Clippy"
+              },
+              "Mark": [
+  
+          ],
+              "Rating": 5,
+              "Comment": "Nå kan jeg endelig bruke word",
+              "Type": "Kurs"
+      
+          }
+      },
+      {
+          "packet_type": "event",
+          "data": {
+              "OrgNr": "12",
+              "StudentOrg": "Beta",
+              "Dato": "10/3/2022",
+              "Contact": {
+                  "name": "Billiam Porter"
+              },
+              "Mark": [
+          ],
+              "Rating": 3,
+              "Comment": "Ble mye vindusnakk",
+              "Type": "Sosialt Arrangement"
+          }
+      },
+    ]
+  )
+  
+  const [tempCompanyData, setTempCompanyData] = useState(
+    [
+      {
+        "packet_type": "company",
+        "id": 1,
+        "data": {
+            "Name": "Bølle Consultants",
+            "OrgNr": "12345"
+      }
+      },
+      {
+        "packet_type": "company",
+        "id": 2,
+        "data": {
+            "Name": "Linus Media Group",
+            "OrgNr": "1234"
+        }
+      },
+      {
+        "packet_type": "company",
+        "id": 3,
+        "data": {
+            "Name": "Tv2",
+            "OrgNr": "123"
+        }
+      },
+      {
+        "packet_type": "company",
+        "id": 4,
+        "data": {
+            "Name": "Mikromyk",
+            "OrgNr": "12"
+        }
+      },
+      {
+        "packet_type": "company",
+        "id": 5,
+        "data": {
+            "Name": "Grimstad Skorstein Fabrikk",
+            "OrgNr": "1"
+        }
+      }
+    ]
+  )
   
   
   
@@ -60,10 +227,27 @@ function App() {
   }
   
   
-  const handleInput = (e) => {
-    console.log("Input onChange triggered")
-    setSearchInput(e.value)
+  const SwitchView = () => {
+    switch(selectedView) {
+      case "company":
+        console.log("Switching to company view")
+        return (
+          <CompanyView return={ReturnToSearch} />
+        )
+      default:
+        console.log("Switching to search view")
+        return (
+          <SearchView companies={tempCompanyData} />
+        )
+    }
   }
+  
+  
+  const ReturnToSearch = () => {
+    setSelectedView()
+  }
+  
+  
   
   
   

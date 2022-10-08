@@ -49,9 +49,9 @@ Other examples that can result in a 1* review are: not paying, representatives c
 ## Api Endpoints
 Examples using localhost:3000
 ```
-localhost:3000/ -> returns all companies
-localhost:3000/company?name=<query> -> companies by name
-localhost:3000/events?org=<orgnumber>
+localhost:3001/ -> returns all companies
+localhost:3001/company?name=<query> -> companies by name
+localhost:3001/events?org=<orgnumber>
 ```
 ## Env variables for local testing
 ```
